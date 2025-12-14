@@ -18,18 +18,26 @@ body {
     padding: 0 20px;
 }
 
+/* Títulos principales */
+h2 {
+    color: #8B4513;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #8B4513;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
 /* Cabecera */
 header {
     background-color: #8B4513;
     color: white;
     padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);/*sombra vertical 2 px abajo*/
 }
 
 .logo {
@@ -42,33 +50,11 @@ header {
     height: 80px;
     margin-right: 15px;
     border-radius: 50%;
-    object-fit: cover;
 }
 
 .logo h1 {
     font-size: 2.2rem;
     font-weight: 700;
-}
-
-/* Navegación */
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #FFD700;
 }
 
 /* Sección principal */
@@ -78,23 +64,48 @@ nav ul li a:hover {
     gap: 30px;
 }
 
-/* Panel izquierdo con Recetas, Reservas y Horario */
-.left-panel {
-    flex: 1;
+/* Panel izquierdo y sección de receta (estilos comunes) */
+.left-panel,
+.recipe-section {
     background-color: white;
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.left-panel {
+    flex: 1;
     height: fit-content;
 }
 
-.left-panel h2 {
-    color: #8B4513;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #FFD700;
-    padding-bottom: 10px;
+.recipe-section {
+    flex: 2;
 }
 
+/* GIF del teléfono */
+.phone-gif {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.phone-gif img {
+    width: 110px;
+    height: 50px; /* Define altura fija */
+    object-fit: cover; /* Recorta manteniendo proporciones */
+}
+
+.button-reserva {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Secciones del menú */
 .menu-section {
     margin-bottom: 25px;
 }
@@ -105,6 +116,7 @@ nav ul li a:hover {
     font-size: 1.3rem;
 }
 
+/* Listas del menú */
 .menu-list {
     list-style-type: none;
 }
@@ -116,7 +128,7 @@ nav ul li a:hover {
 }
 
 .menu-list li:last-child {
-    border-bottom: none;
+    border-bottom: none;/*el último no tiene linea inferior*/
 }
 
 .menu-list a {
@@ -128,9 +140,9 @@ nav ul li a:hover {
 
 .menu-list a:hover {
     color: #8B4513;
-    font-weight: 500;
 }
 
+/* Horario */
 .horario {
     background-color: #f5f5f5;
     padding: 15px;
@@ -142,29 +154,51 @@ nav ul li a:hover {
     margin-bottom: 8px;
 }
 
-/* Sección de receta */
-.recipe-section {
-    flex: 2;
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+/* Animación css humo y pirámide muslitos */
+.gif-container {
+    position: relative;
+    margin: 25px auto; /* auto centra horizontalmente */
+    display: block;
+    width: fit-content;
 }
 
-.recipe-section h2 {
-    color: #8B4513;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #FFD700;
-    padding-bottom: 10px;
+.piramide {
+    width: 220px;
+    height: auto;
 }
 
+.humo {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    opacity: 0.8;
+    animation: moverHumo 3s infinite;
+}
+
+@keyframes moverHumo {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-40px);
+        opacity: 0;
+    }
+}
+
+/* Imagen de la receta */
 .recipe-image {
     float: right;
     margin: 0 0 20px 20px;
     width: 300px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 .recipe-image img {
@@ -173,75 +207,60 @@ nav ul li a:hover {
     display: block;
 }
 
+/* Lista de ingredientes */
 .ingredients-list {
     margin-bottom: 25px;
 }
 
-.ingredients-list h3 {
-    color: #8B4513;
-    margin-bottom: 15px;
-}
-
 .ingredients-list ul {
-    list-style-type: none;
+    list-style-type: disc;
+    list-style-position: inside;
     padding-left: 20px;
 }
 
 .ingredients-list li {
     margin-bottom: 8px;
-    position: relative;
-    padding-left: 25px;
+    color: #333; /* Texto en negro/gris oscuro */
 }
 
-.ingredients-list li:before {
-    content: "•";
-    color: #8B4513;
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    top: -5px;
+.ingredients-list li::marker {
+    color: #8B4513; /* Bullet en marrón */
 }
+
+/* Preparación */
 .preparation ol {
     padding-left: 20px;
 }
 
-.preparation li, h3{
+.preparation li,
+.preparation h3 {
     margin-bottom: 15px;
     padding-left: 10px;
 }
 
-/* Sección multimedia */
-.multimedia-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.video-container, .audio-container, .gif-container {
-    background-color: white;
+/* Multimedia */
+.video-container,
+.audio-container {
+    background-color: #f9f5f0;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);/*sombra vertical hacia abajo*/
+    margin: 25px 0;
+    text-align: center;
 }
 
-.video-container h3, .audio-container h3, .gif-container h3 {
-    color: #8B4513;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-video, audio {
+video,
+audio {
     width: 100%;
+    max-width: 500px;
     border-radius: 8px;
 }
 
-.gif-container img {
-    width: 100%;
-    border-radius: 8px;
+video {
+    max-height: 300px;
 }
 
-/* Pie de página */
+/* Footer */
 footer {
     background-color: #8B4513;
     color: white;
@@ -267,13 +286,7 @@ footer p {
         max-width: 400px;
     }
 
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        margin-top: 15px;
+    .logo {
         justify-content: center;
     }
 }
