@@ -3,7 +3,7 @@ Un sitio web estático moderno para un restaurante especializado, diseñado con 
 
 ## 🌐 Demo en Vivo:
 
-https://akashae98.github.io/prototipo-portfolio/web-el-muslito/
+https://akashae98.github.io/web-el-muslito/
 
 ## 📱 Vista Previa:
 
